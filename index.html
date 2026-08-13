@@ -326,31 +326,19 @@ src="https://www.facebook.com/tr?id=2344297609386117&ev=PageView&noscript=1"
   }
   .depoimentos{
     display:grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
   }
-  .depoimento-card{
-    background: var(--off-white);
-    border-radius: var(--radius);
-    padding: 22px;
+  .depoimento-print{
+    border-radius: 12px;
+    overflow: hidden;
     border: 1px solid var(--cinza-claro);
+    box-shadow: 0 4px 14px rgba(20,50,41,0.10);
+    background: var(--branco);
   }
-  .depoimento-estrelas{
-    color: #f2b705;
-    margin-bottom: 10px;
-    font-size: .95rem;
-  }
-  .depoimento-texto{
-    font-size: .92rem;
-    color: var(--cinza-texto);
-    margin-bottom: 14px;
-    font-style: italic;
-  }
-  .depoimento-nome{
-    font-family: var(--font-titulo);
-    font-weight: 600;
-    font-size: .9rem;
-    color: var(--verde-petroleo);
+  .depoimento-print img{
+    width: 100%;
+    display: block;
   }
 
   /* ===== OFERTA ===== */
@@ -593,7 +581,7 @@ src="https://www.facebook.com/tr?id=2344297609386117&ev=PageView&noscript=1"
 
     .features-grid{ grid-template-columns: repeat(2, 1fr); }
     .passos{ grid-template-columns: repeat(3, 1fr); }
-    .depoimentos{ grid-template-columns: repeat(2, 1fr); }
+    .depoimentos{ grid-template-columns: repeat(4, 1fr); }
     .oferta-grid{ grid-template-columns: repeat(2, 1fr); max-width: 860px; }
     .oferta-card.destaque{ transform: scale(1.04); }
 
@@ -764,30 +752,13 @@ src="https://www.facebook.com/tr?id=2344297609386117&ev=PageView&noscript=1"
     <p class="legenda">Veja o que quem já usa tem a dizer</p>
 
     <div class="depoimentos">
-      <!-- PLACEHOLDER: substituir pelos depoimentos reais -->
-      <div class="depoimento-card">
-        <div class="depoimento-estrelas">★★★★★</div>
-        <p class="depoimento-texto">[DEPOIMENTO 1 - texto do depoimento a ser inserido aqui]</p>
-        <p class="depoimento-nome">[DEPOIMENTO 1 - Nome]</p>
-      </div>
-
-      <div class="depoimento-card">
-        <div class="depoimento-estrelas">★★★★★</div>
-        <p class="depoimento-texto">[DEPOIMENTO 2 - texto do depoimento a ser inserido aqui]</p>
-        <p class="depoimento-nome">[DEPOIMENTO 2 - Nome]</p>
-      </div>
-
-      <div class="depoimento-card">
-        <div class="depoimento-estrelas">★★★★★</div>
-        <p class="depoimento-texto">[DEPOIMENTO 3 - texto do depoimento a ser inserido aqui]</p>
-        <p class="depoimento-nome">[DEPOIMENTO 3 - Nome]</p>
-      </div>
-
-      <div class="depoimento-card">
-        <div class="depoimento-estrelas">★★★★★</div>
-        <p class="depoimento-texto">[DEPOIMENTO 4 - texto do depoimento a ser inserido aqui]</p>
-        <p class="depoimento-nome">[DEPOIMENTO 4 - Nome]</p>
-      </div>
+      <div class="depoimento-print"><img src="depoimento-1.jpg" alt="Print de depoimento de cliente sobre a planilha"></div>
+      <div class="depoimento-print"><img src="depoimento-2.jpg" alt="Print de depoimento de cliente sobre a planilha"></div>
+      <div class="depoimento-print"><img src="depoimento-3.jpg" alt="Print de depoimento de cliente sobre a planilha"></div>
+      <div class="depoimento-print"><img src="depoimento-4.jpg" alt="Print de depoimento de cliente sobre a planilha"></div>
+      <div class="depoimento-print"><img src="depoimento-6.jpg" alt="Print de depoimento de cliente sobre a planilha"></div>
+      <div class="depoimento-print"><img src="depoimento-7.jpg" alt="Print de depoimento de cliente sobre a planilha"></div>
+      <div class="depoimento-print"><img src="depoimento-8.jpg" alt="Print de depoimento de cliente sobre a planilha"></div>
     </div>
   </div>
 </section>
