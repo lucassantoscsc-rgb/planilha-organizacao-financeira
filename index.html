@@ -16,10 +16,11 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2343390405794612');
+fbq('init', '2344297609386117');
+fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2343390405794612&ev=PageView&noscript=1"
+src="https://www.facebook.com/tr?id=2344297609386117&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 
@@ -955,39 +956,12 @@ src="https://www.facebook.com/tr?id=2343390405794612&ev=PageView&noscript=1"
 </script>
 
 <script>
-  // Rastreamento combinado: Meta Pixel (navegador) + API de Conversões (servidor),
-  // usando o mesmo event_id nos dois para o Meta deduplicar.
-  function getCookie(name){
-    var match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
-    return match ? decodeURIComponent(match[1]) : undefined;
-  }
-
-  function trackEvent(eventName){
-    var eventId = (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random());
-
-    if (typeof fbq === 'function') {
-      fbq('track', eventName, {}, { eventID: eventId });
-    }
-
-    fetch('/api/capi', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      keepalive: true,
-      body: JSON.stringify({
-        event_name: eventName,
-        event_id: eventId,
-        event_source_url: window.location.href,
-        fbp: getCookie('_fbp'),
-        fbc: getCookie('_fbc')
-      })
-    }).catch(function(){ /* silencioso: endpoint só existe no deploy da Vercel */ });
-  }
-
-  trackEvent('PageView');
-
+  // Evento de Pixel ao clicar em qualquer CTA de checkout
   document.querySelectorAll('.js-checkout-cta').forEach(function(link){
     link.addEventListener('click', function(){
-      trackEvent('InitiateCheckout');
+      if (typeof fbq === 'function') {
+        fbq('track', 'InitiateCheckout');
+      }
     });
   });
 </script>
