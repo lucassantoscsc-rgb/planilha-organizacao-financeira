@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planilha de Organização Financeira 2026</title>
+<meta name="description" content="A planilha mais simples e completa para você organizar suas finanças em 2026. Sem mesada de curso, sem complicação, direto ao ponto.">
+
+<!-- Fonte moderna e legível -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --verde-petroleo: #1f4d40;
+    --verde-petroleo-escuro: #143229;
+    --verde-petroleo-claro: #2c6b57;
+    --verde-cta: #6fcf6f;
+    --verde-cta-hover: #58bb58;
+    --branco: #ffffff;
+    --off-white: #f6faf8;
+    --cinza-texto: #4a5a55;
+    --cinza-claro: #e7f0ec;
+    --sombra: 0 10px 30px rgba(20, 50, 41, 0.15);
+    --radius: 14px;
+    --font-titulo: 'Poppins', 'Segoe UI', sans-serif;
+    --font-corpo: 'Inter', 'Segoe UI', sans-serif;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    font-family: var(--font-corpo);
+    color: var(--verde-petroleo-escuro);
+    background: var(--branco);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 78px; /* espaço pro CTA fixo mobile */
+  }
+
+  img{ max-width:100%; display:block; }
+
+  h1, h2, h3{
+    font-family: var(--font-titulo);
+    line-height: 1.25;
+    color: var(--verde-petroleo-escuro);
+  }
+
+  .container{
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  section{ padding: 64px 0; }
+
+  /* ===== BOTÕES ===== */
+  .btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font-titulo);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border: none;
+    border-radius: 999px;
+    padding: 18px 32px;
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+    text-align: center;
+  }
+
+  .btn-primary{
+    background: var(--verde-cta);
+    color: var(--verde-petroleo-escuro);
+    box-shadow: 0 8px 20px rgba(111, 207, 111, 0.45);
+  }
+  .btn-primary:hover{
+    background: var(--verde-cta-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(111, 207, 111, 0.55);
+  }
+  .btn-primary:active{ transform: translateY(0); }
+
+  .btn-outline{
+    background: transparent;
+    color: var(--branco);
+    border: 2px solid var(--branco);
+  }
+  .btn-outline:hover{
+    background: var(--branco);
+    color: var(--verde-petroleo);
+  }
+
+  .btn-block{ width: 100%; }
+
+  /* ===== HERO ===== */
+  .hero{
+    background: linear-gradient(160deg, var(--verde-petroleo) 0%, var(--verde-petroleo-escuro) 100%);
+    color: var(--branco);
+    padding: 56px 0 48px;
+    text-align: center;
+  }
+
+  .hero h1{
+    color: var(--branco);
+    font-size: 1.9rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+
+  .hero p.subhead{
+    font-size: 1.05rem;
+    color: #dcece5;
+    max-width: 620px;
+    margin: 0 auto 28px;
+  }
+
+  .hero .cta-wrap{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap: 14px;
+  }
+
+  .hero .selo{
+    font-size: .85rem;
+    color: #bcd8cc;
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .hero .selo::before{
+    content:"⭐";
+  }
+
+  .hero-image{
+    margin-top: 40px;
+  }
+  .hero-image img{
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--sombra);
+  }
+
+  /* ===== PROBLEMA ===== */
+  .problema{
+    background: var(--off-white);
+  }
+  .problema h2{
+    font-size: 1.6rem;
+    text-align:center;
+    margin-bottom: 28px;
+  }
+  .problema-lista{
+    list-style:none;
+    max-width: 620px;
+    margin: 0 auto 28px;
+    display:flex;
+    flex-direction:column;
+    gap: 14px;
+  }
+  .problema-lista li{
+    background: var(--branco);
+    border-left: 4px solid var(--verde-petroleo);
+    border-radius: 10px;
+    padding: 16px 18px;
+    box-shadow: 0 4px 14px rgba(20,50,41,0.06);
+    font-size: .98rem;
+    color: var(--cinza-texto);
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+  }
+  .problema-lista li::before{
+    content:"✕";
+    color:#c0554f;
+    font-weight:700;
+    flex-shrink:0;
+  }
+  .problema-fechamento{
+    text-align:center;
+    font-family: var(--font-titulo);
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--verde-petroleo);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* ===== SOLUÇÃO ===== */
+  .solucao h2{
+    font-size: 1.6rem;
+    text-align:center;
+    margin-bottom: 14px;
+  }
+  .solucao > .container > p{
+    text-align:center;
+    max-width: 640px;
+    margin: 0 auto 36px;
+    color: var(--cinza-texto);
+  }
+
+  .features-grid{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .feature-card{
+    background: var(--off-white);
+    border-radius: var(--radius);
+    padding: 22px 20px;
+    display:flex;
+    gap: 14px;
+    align-items:flex-start;
+    border: 1px solid var(--cinza-claro);
+  }
+
+  .feature-icon{
+    font-size: 1.6rem;
+    flex-shrink:0;
+    background: var(--verde-petroleo);
+    color: var(--branco);
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .feature-card h3{
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  .feature-card p{
+    font-size: .9rem;
+    color: var(--cinza-texto);
+  }
+
+  /* ===== COMO FUNCIONA ===== */
+  .como-funciona{
+    background: var(--verde-petroleo);
+    color: var(--branco);
+  }
+  .como-funciona h2{
+    color: var(--branco);
+    text-align:center;
+    font-size: 1.6rem;
+    margin-bottom: 36px;
+  }
+  .passos{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .passo{
+    text-align:center;
+    padding: 0 10px;
+  }
+  .passo .numero{
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--verde-cta);
+    color: var(--verde-petroleo-escuro);
+    font-family: var(--font-titulo);
+    font-weight: 800;
+    font-size: 1.3rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin: 0 auto 14px;
+  }
+  .passo h3{
+    color: var(--branco);
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+  }
+  .passo p{
+    color: #d5e8e0;
+    font-size: .9rem;
+  }
+
+  /* ===== PROVA SOCIAL ===== */
+  .prova-social h2.destaque{
+    text-align:center;
+    font-size: 2rem;
+    color: var(--verde-petroleo);
+    margin-bottom: 6px;
+  }
+  .prova-social > .container > p.legenda{
+    text-align:center;
+    color: var(--cinza-texto);
+    margin-bottom: 36px;
+  }
+  .depoimentos{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .depoimento-card{
+    background: var(--off-white);
+    border-radius: var(--radius);
+    padding: 22px;
+    border: 1px solid var(--cinza-claro);
+  }
+  .depoimento-estrelas{
+    color: #f2b705;
+    margin-bottom: 10px;
+    font-size: .95rem;
+  }
+  .depoimento-texto{
+    font-size: .92rem;
+    color: var(--cinza-texto);
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+  .depoimento-nome{
+    font-family: var(--font-titulo);
+    font-weight: 600;
+    font-size: .9rem;
+    color: var(--verde-petroleo);
+  }
+
+  /* ===== OFERTA ===== */
+  .oferta{
+    background: var(--off-white);
+  }
+  .oferta h2{
+    text-align:center;
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+  }
+  .oferta > .container > p.sub{
+    text-align:center;
+    color: var(--cinza-texto);
+    margin-bottom: 36px;
+  }
+
+  .oferta-grid{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .oferta-card{
+    background: var(--branco);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    border: 2px solid var(--cinza-claro);
+    position: relative;
+    display:flex;
+    flex-direction:column;
+  }
+
+  .oferta-card.destaque{
+    border-color: var(--verde-cta);
+    box-shadow: var(--sombra);
+    transform: scale(1.02);
+  }
+
+  .oferta-badge{
+    position:absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--verde-cta);
+    color: var(--verde-petroleo-escuro);
+    font-family: var(--font-titulo);
+    font-weight: 700;
+    font-size: .78rem;
+    padding: 6px 16px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .oferta-card h3{
+    font-size: 1.2rem;
+    text-align:center;
+    margin-bottom: 6px;
+  }
+
+  .oferta-preco{
+    text-align:center;
+    font-family: var(--font-titulo);
+    font-weight: 800;
+    font-size: 2.1rem;
+    color: var(--verde-petroleo);
+    margin-bottom: 18px;
+  }
+  .oferta-preco span{
+    font-size: .95rem;
+    font-weight: 500;
+    color: var(--cinza-texto);
+  }
+
+  .oferta-lista{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap: 10px;
+    margin-bottom: 24px;
+    flex-grow:1;
+  }
+  .oferta-lista li{
+    font-size: .92rem;
+    color: var(--cinza-texto);
+    display:flex;
+    gap:8px;
+    align-items:flex-start;
+  }
+  .oferta-lista li::before{
+    content:"✓";
+    color: var(--verde-cta-hover);
+    font-weight:700;
+    flex-shrink:0;
+  }
+
+  .oferta-lista li.bonus{
+    color: var(--verde-petroleo);
+    font-weight: 600;
+  }
+
+  /* ===== GARANTIA ===== */
+  .garantia{
+    text-align:center;
+  }
+  .garantia-box{
+    max-width: 620px;
+    margin: 0 auto;
+    background: var(--off-white);
+    border: 2px dashed var(--verde-petroleo-claro);
+    border-radius: var(--radius);
+    padding: 32px 24px;
+  }
+  .garantia-icone{
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+  }
+  .garantia h2{
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+  .garantia p{
+    color: var(--cinza-texto);
+    font-size: .95rem;
+  }
+
+  /* ===== FAQ ===== */
+  .faq h2{
+    text-align:center;
+    font-size: 1.6rem;
+    margin-bottom: 32px;
+  }
+  .faq-lista{
+    max-width: 700px;
+    margin: 0 auto;
+    display:flex;
+    flex-direction:column;
+    gap: 12px;
+  }
+  .faq-item{
+    border: 1px solid var(--cinza-claro);
+    border-radius: 10px;
+    overflow:hidden;
+  }
+  .faq-pergunta{
+    width:100%;
+    background: var(--off-white);
+    border:none;
+    text-align:left;
+    padding: 16px 18px;
+    font-family: var(--font-titulo);
+    font-weight: 600;
+    font-size: .98rem;
+    color: var(--verde-petroleo-escuro);
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap: 10px;
+  }
+  .faq-pergunta .icone{
+    transition: transform .2s ease;
+    color: var(--verde-petroleo);
+    font-size: 1.2rem;
+    flex-shrink:0;
+  }
+  .faq-item.aberto .faq-pergunta .icone{
+    transform: rotate(45deg);
+  }
+  .faq-resposta{
+    max-height: 0;
+    overflow:hidden;
+    transition: max-height .25s ease;
+    background: var(--branco);
+  }
+  .faq-resposta-inner{
+    padding: 0 18px 16px;
+    font-size: .92rem;
+    color: var(--cinza-texto);
+  }
+
+  /* ===== CTA FINAL ===== */
+  .cta-final{
+    background: linear-gradient(160deg, var(--verde-petroleo) 0%, var(--verde-petroleo-escuro) 100%);
+    color: var(--branco);
+    text-align:center;
+  }
+  .cta-final h2{
+    color: var(--branco);
+    font-size: 1.7rem;
+    max-width: 640px;
+    margin: 0 auto 24px;
+  }
+
+  /* ===== RODAPÉ ===== */
+  footer{
+    background: var(--verde-petroleo-escuro);
+    color: #a9c6bb;
+    text-align:center;
+    padding: 28px 20px;
+    font-size: .82rem;
+  }
+
+  /* ===== CTA FIXO MOBILE ===== */
+  .cta-fixo-mobile{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--branco);
+    box-shadow: 0 -6px 20px rgba(0,0,0,0.12);
+    padding: 12px 16px;
+    z-index: 999;
+    display:flex;
+  }
+
+  /* ===== DESKTOP (min-width 768px) ===== */
+  @media (min-width: 768px){
+    body{ padding-bottom: 0; }
+    .cta-fixo-mobile{ display:none; }
+
+    .hero{ padding: 88px 0 72px; text-align:left; }
+    .hero .container{
+      display:grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 48px;
+      align-items:center;
+    }
+    .hero-text{ text-align:left; }
+    .hero h1{ font-size: 2.7rem; }
+    .hero p.subhead{ margin: 0 0 28px; }
+    .hero .cta-wrap{ align-items:flex-start; }
+    .hero-image{ margin-top:0; }
+
+    .problema h2, .solucao h2, .como-funciona h2, .oferta h2, .faq h2{
+      font-size: 2.1rem;
+    }
+
+    .features-grid{ grid-template-columns: repeat(2, 1fr); }
+    .passos{ grid-template-columns: repeat(3, 1fr); }
+    .depoimentos{ grid-template-columns: repeat(2, 1fr); }
+    .oferta-grid{ grid-template-columns: repeat(2, 1fr); max-width: 860px; }
+    .oferta-card.destaque{ transform: scale(1.04); }
+
+    .prova-social h2.destaque{ font-size: 2.6rem; }
+    .cta-final h2{ font-size: 2.2rem; }
+  }
+
+  @media (min-width: 1024px){
+    .features-grid{ grid-template-columns: repeat(2, 1fr); }
+    section{ padding: 88px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     1. HERO
+========================================================== -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-text">
+      <h1>Seu dinheiro não some por acaso. Some porque ninguém te ensinou a rastreá-lo.</h1>
+      <p class="subhead">A planilha mais simples e completa para você organizar suas finanças em 2026 — sem mesada de curso, sem complicação, direto ao ponto.</p>
+      <div class="cta-wrap">
+        <a href="#oferta" class="btn btn-primary btn-block">Quero organizar meu dinheiro agora</a>
+        <span class="selo">+14.340 pessoas já usam essa planilha</span>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="mockup-planilha.png" alt="Mockup da Planilha de Organização Financeira 2026 aberta em laptop e celular">
+    </div>
+  </div>
+</header>
+
+<!-- =========================================================
+     2. O PROBLEMA (Agitação)
+========================================================== -->
+<section class="problema">
+  <div class="container">
+    <h2>Você trabalha o mês inteiro e no fim... o dinheiro simplesmente sumiu?</h2>
+    <ul class="problema-lista">
+      <li>Falta de organização financeira — o dinheiro entra e sai sem você perceber pra onde foi.</li>
+      <li>Ferramentas complicadas demais, cheias de fórmulas que você nunca vai usar.</li>
+      <li>Perda de controle sobre os gastos no cartão de crédito, que só aparecem na fatura.</li>
+      <li>Dificuldade de manter constância em planilhas confusas — você começa e desiste em duas semanas.</li>
+    </ul>
+    <p class="problema-fechamento">Isso não é falta de disciplina. É falta da ferramenta certa.</p>
+  </div>
+</section>
+
+<!-- =========================================================
+     3. A SOLUÇÃO
+========================================================== -->
+<section class="solucao">
+  <div class="container">
+    <h2>Conheça a Planilha de Organização Financeira 2026</h2>
+    <p>Uma planilha 100% personalizável no Google Sheets, pronta pra usar, sem fórmulas complicadas. Você só abre, personaliza com seus dados e já começa a colocar sua vida financeira em ordem hoje mesmo.</p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">✏️</div>
+        <div>
+          <h3>Personalização com seu nome</h3>
+          <p>A planilha é sua: capa e painéis personalizados com o seu nome.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <div>
+          <h3>Metas financeiras</h3>
+          <p>Defina metas (comprar um carro, viajar) com valor e acompanhamento automático do progresso.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🛟</div>
+        <div>
+          <h3>Reserva de emergência</h3>
+          <p>Cálculo automático de progresso até você atingir sua reserva ideal.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <div>
+          <h3>Entradas e gastos por categoria</h3>
+          <p>Controle completo de tudo que entra e sai, organizado por categoria.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">💳</div>
+        <div>
+          <h3>Débito e crédito separados</h3>
+          <p>Controle independente para você nunca mais ser pego de surpresa pela fatura.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🧾</div>
+        <div>
+          <h3>Contas a pagar</h3>
+          <p>Fluxo organizado das suas contas, com previsão de vencimentos.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📈</div>
+        <div>
+          <h3>Gráfico de alocação</h3>
+          <p>Visualize exatamente para onde seu dinheiro está indo por categoria.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🗓️</div>
+        <div>
+          <h3>12 meses organizados</h3>
+          <p>Abas separadas de Janeiro a Dezembro — tudo no lugar certo.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">💰</div>
+        <div>
+          <h3>"Quanto ainda posso gastar"</h3>
+          <p>Visual atualizado em tempo real pra você decidir com segurança.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     4. COMO FUNCIONA
+========================================================== -->
+<section class="como-funciona">
+  <div class="container">
+    <h2>Como funciona</h2>
+    <div class="passos">
+      <div class="passo">
+        <div class="numero">1</div>
+        <h3>Compre e receba na hora</h3>
+        <p>Acesso liberado automaticamente após a confirmação do pagamento.</p>
+      </div>
+      <div class="passo">
+        <div class="numero">2</div>
+        <h3>Copie pro seu Google Drive</h3>
+        <p>Um clique e a planilha já é sua, salva na sua conta.</p>
+      </div>
+      <div class="passo">
+        <div class="numero">3</div>
+        <h3>Personalize e comece a usar</h3>
+        <p>Preencha com seus dados e organize suas finanças ainda hoje.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     5. PROVA SOCIAL
+========================================================== -->
+<section class="prova-social">
+  <div class="container">
+    <h2 class="destaque">+14.340 planilhas vendidas</h2>
+    <p class="legenda">Veja o que quem já usa tem a dizer</p>
+
+    <div class="depoimentos">
+      <!-- PLACEHOLDER: substituir pelos depoimentos reais -->
+      <div class="depoimento-card">
+        <div class="depoimento-estrelas">★★★★★</div>
+        <p class="depoimento-texto">[DEPOIMENTO 1 - texto do depoimento a ser inserido aqui]</p>
+        <p class="depoimento-nome">[DEPOIMENTO 1 - Nome]</p>
+      </div>
+
+      <div class="depoimento-card">
+        <div class="depoimento-estrelas">★★★★★</div>
+        <p class="depoimento-texto">[DEPOIMENTO 2 - texto do depoimento a ser inserido aqui]</p>
+        <p class="depoimento-nome">[DEPOIMENTO 2 - Nome]</p>
+      </div>
+
+      <div class="depoimento-card">
+        <div class="depoimento-estrelas">★★★★★</div>
+        <p class="depoimento-texto">[DEPOIMENTO 3 - texto do depoimento a ser inserido aqui]</p>
+        <p class="depoimento-nome">[DEPOIMENTO 3 - Nome]</p>
+      </div>
+
+      <div class="depoimento-card">
+        <div class="depoimento-estrelas">★★★★★</div>
+        <p class="depoimento-texto">[DEPOIMENTO 4 - texto do depoimento a ser inserido aqui]</p>
+        <p class="depoimento-nome">[DEPOIMENTO 4 - Nome]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     6. OFERTA
+========================================================== -->
+<section class="oferta" id="oferta">
+  <div class="container">
+    <h2>Escolha sua oferta</h2>
+    <p class="sub">Acesso imediato após a confirmação do pagamento</p>
+
+    <div class="oferta-grid">
+      <!-- OFERTA 1 -->
+      <div class="oferta-card">
+        <h3>Só a Planilha</h3>
+        <div class="oferta-preco">R$17<span>,00 à vista</span></div>
+        <ul class="oferta-lista">
+          <li>Planilha completa de organização financeira 2026</li>
+          <li>Acesso imediato após a compra</li>
+          <li>Atualizações futuras incluídas</li>
+        </ul>
+        <!-- PLACEHOLDER: substituir pelo link real de checkout -->
+        <a href="[LINK_CHECKOUT_OFERTA_1]" class="btn btn-primary btn-block">Quero só a planilha</a>
+      </div>
+
+      <!-- OFERTA 2 - DESTAQUE -->
+      <div class="oferta-card destaque">
+        <span class="oferta-badge">Mais vendido</span>
+        <h3>Planilha + Bônus</h3>
+        <div class="oferta-preco">R$27<span>,00 à vista</span></div>
+        <ul class="oferta-lista">
+          <li>Planilha completa de organização financeira 2026</li>
+          <li>Acesso imediato após a compra</li>
+          <li>Atualizações futuras incluídas</li>
+          <!-- PLACEHOLDER: definir nome do bônus -->
+          <li class="bonus">Bônus exclusivo: [NOME_DO_BONUS - a definir]</li>
+        </ul>
+        <!-- PLACEHOLDER: substituir pelo link real de checkout -->
+        <a href="[LINK_CHECKOUT_OFERTA_2]" class="btn btn-primary btn-block">Quero o combo completo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     7. GARANTIA
+========================================================== -->
+<section class="garantia">
+  <div class="container">
+    <div class="garantia-box">
+      <div class="garantia-icone">🛡️</div>
+      <h2>Garantia de 7 dias</h2>
+      <p>Experimente sem risco. Se não gostar, devolvemos 100% do seu dinheiro.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     8. FAQ
+========================================================== -->
+<section class="faq">
+  <div class="container">
+    <h2>Perguntas frequentes</h2>
+    <div class="faq-lista">
+      <div class="faq-item">
+        <button class="faq-pergunta">
+          Funciona no celular?
+          <span class="icone">+</span>
+        </button>
+        <div class="faq-resposta">
+          <div class="faq-resposta-inner">Sim! A planilha funciona perfeitamente pelo app do Google Sheets, tanto no Android quanto no iPhone, além do computador.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-pergunta">
+          Preciso saber usar Excel/Planilhas?
+          <span class="icone">+</span>
+        </button>
+        <div class="faq-resposta">
+          <div class="faq-resposta-inner">Não é necessário nenhum conhecimento prévio. A planilha já vem pronta, com tudo automatizado — você só preenche os campos indicados.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-pergunta">
+          Recebo o acesso na hora?
+          <span class="icone">+</span>
+        </button>
+        <div class="faq-resposta">
+          <div class="faq-resposta-inner">Sim, o acesso é liberado automaticamente assim que o pagamento é confirmado.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-pergunta">
+          Funciona em qualquer país?
+          <span class="icone">+</span>
+        </button>
+        <div class="faq-resposta">
+          <div class="faq-resposta-inner">Sim, por ser 100% digital e baseada no Google Sheets, você pode usar de qualquer lugar do mundo, em qualquer moeda.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-pergunta">
+          E se eu não gostar?
+          <span class="icone">+</span>
+        </button>
+        <div class="faq-resposta">
+          <div class="faq-resposta-inner">Você tem 7 dias de garantia incondicional. Se não gostar, é só pedir e devolvemos 100% do seu dinheiro.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     9. CTA FINAL
+========================================================== -->
+<section class="cta-final">
+  <div class="container">
+    <h2>Seu dinheiro não some por acaso. Some porque ninguém te ensinou a rastreá-lo.</h2>
+    <a href="[LINK_CHECKOUT_OFERTA_2]" class="btn btn-primary">Quero organizar minhas finanças agora</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>Planilha de Organização Financeira 2026. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<!-- CTA fixo no rodapé — visível apenas em mobile -->
+<div class="cta-fixo-mobile">
+  <a href="#oferta" class="btn btn-primary btn-block">Quero organizar meu dinheiro agora</a>
+</div>
+
+<script>
+  // Acordeão do FAQ
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var pergunta = item.querySelector('.faq-pergunta');
+    var resposta = item.querySelector('.faq-resposta');
+
+    pergunta.addEventListener('click', function(){
+      var jaAberto = item.classList.contains('aberto');
+
+      // fecha todos os outros itens
+      document.querySelectorAll('.faq-item.aberto').forEach(function(outro){
+        if(outro !== item){
+          outro.classList.remove('aberto');
+          outro.querySelector('.faq-resposta').style.maxHeight = null;
+        }
+      });
+
+      if(jaAberto){
+        item.classList.remove('aberto');
+        resposta.style.maxHeight = null;
+      } else {
+        item.classList.add('aberto');
+        resposta.style.maxHeight = resposta.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
