@@ -324,17 +324,33 @@ src="https://www.facebook.com/tr?id=2344297609386117&ev=PageView&noscript=1"
     color: var(--cinza-texto);
     margin-bottom: 36px;
   }
+  .depoimentos-wrap{
+    position: relative;
+  }
   .depoimentos{
-    display:grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
     gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px 4px 12px;
+    scrollbar-width: none;
+  }
+  .depoimentos::-webkit-scrollbar{
+    display: none;
   }
   .depoimento-print{
+    flex: 0 0 auto;
+    width: 66%;
+    scroll-snap-align: start;
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid var(--cinza-claro);
     box-shadow: 0 4px 14px rgba(20,50,41,0.10);
     background: var(--branco);
+  }
+  .carrossel-seta{
+    display: none;
   }
   .depoimento-print img{
     width: 100%;
@@ -581,7 +597,29 @@ src="https://www.facebook.com/tr?id=2344297609386117&ev=PageView&noscript=1"
 
     .features-grid{ grid-template-columns: repeat(2, 1fr); }
     .passos{ grid-template-columns: repeat(3, 1fr); }
-    .depoimentos{ grid-template-columns: repeat(4, 1fr); }
+    .depoimento-print{ width: 240px; }
+    .carrossel-seta{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--branco);
+      box-shadow: var(--sombra);
+      border: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      line-height: 1;
+      color: var(--verde-petroleo);
+      z-index: 2;
+    }
+    .carrossel-seta:hover{ background: var(--off-white); }
+    .seta-esq{ left: -20px; }
+    .seta-dir{ right: -20px; }
     .oferta-grid{ grid-template-columns: repeat(2, 1fr); max-width: 860px; }
     .oferta-card.destaque{ transform: scale(1.04); }
 
@@ -751,14 +789,18 @@ src="https://www.facebook.com/tr?id=2344297609386117&ev=PageView&noscript=1"
     <h2 class="destaque">+14.340 planilhas vendidas</h2>
     <p class="legenda">Veja o que quem já usa tem a dizer</p>
 
-    <div class="depoimentos">
-      <div class="depoimento-print"><img src="depoimento-1.jpg" alt="Print de depoimento de cliente sobre a planilha"></div>
-      <div class="depoimento-print"><img src="depoimento-2.jpg" alt="Print de depoimento de cliente sobre a planilha"></div>
-      <div class="depoimento-print"><img src="depoimento-3.jpg" alt="Print de depoimento de cliente sobre a planilha"></div>
-      <div class="depoimento-print"><img src="depoimento-4.jpg" alt="Print de depoimento de cliente sobre a planilha"></div>
-      <div class="depoimento-print"><img src="depoimento-6.jpg" alt="Print de depoimento de cliente sobre a planilha"></div>
-      <div class="depoimento-print"><img src="depoimento-7.jpg" alt="Print de depoimento de cliente sobre a planilha"></div>
-      <div class="depoimento-print"><img src="depoimento-8.jpg" alt="Print de depoimento de cliente sobre a planilha"></div>
+    <div class="depoimentos-wrap">
+      <button class="carrossel-seta seta-esq" aria-label="Depoimento anterior">‹</button>
+      <div class="depoimentos" id="depoimentos-track">
+        <div class="depoimento-print"><img src="depoimento-1.jpg" alt="Print de depoimento de cliente sobre a planilha"></div>
+        <div class="depoimento-print"><img src="depoimento-2.jpg" alt="Print de depoimento de cliente sobre a planilha"></div>
+        <div class="depoimento-print"><img src="depoimento-3.jpg" alt="Print de depoimento de cliente sobre a planilha"></div>
+        <div class="depoimento-print"><img src="depoimento-4.jpg" alt="Print de depoimento de cliente sobre a planilha"></div>
+        <div class="depoimento-print"><img src="depoimento-6.jpg" alt="Print de depoimento de cliente sobre a planilha"></div>
+        <div class="depoimento-print"><img src="depoimento-7.jpg" alt="Print de depoimento de cliente sobre a planilha"></div>
+        <div class="depoimento-print"><img src="depoimento-8.jpg" alt="Print de depoimento de cliente sobre a planilha"></div>
+      </div>
+      <button class="carrossel-seta seta-dir" aria-label="Próximo depoimento">›</button>
     </div>
   </div>
 </section>
@@ -924,6 +966,20 @@ src="https://www.facebook.com/tr?id=2344297609386117&ev=PageView&noscript=1"
       }
     });
   });
+</script>
+
+<script>
+  // Setas do carrossel de depoimentos
+  var trackDepoimentos = document.getElementById('depoimentos-track');
+  if (trackDepoimentos) {
+    document.querySelectorAll('.carrossel-seta').forEach(function(botao){
+      botao.addEventListener('click', function(){
+        var passo = trackDepoimentos.querySelector('.depoimento-print').offsetWidth + 14;
+        var direcao = botao.classList.contains('seta-dir') ? 1 : -1;
+        trackDepoimentos.scrollBy({ left: passo * direcao, behavior: 'smooth' });
+      });
+    });
+  }
 </script>
 
 <script>
