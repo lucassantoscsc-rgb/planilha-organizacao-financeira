@@ -458,6 +458,56 @@ src="https://www.facebook.com/tr?id=2344297609386117&ev=PageView&noscript=1"
     font-weight: 600;
   }
 
+  .oferta-lista li.nao-incluso{
+    color: #a9b3af;
+    text-decoration: line-through;
+  }
+  .oferta-lista li.nao-incluso::before{
+    content:"✕";
+    color:#c0554f;
+  }
+
+  .oferta-estrelas{
+    text-align: center;
+    color: #f2b705;
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .oferta-preco-anchor{
+    text-align: center;
+    margin-bottom: 4px;
+  }
+  .preco-de{
+    display: block;
+    color: #c0554f;
+    text-decoration: line-through;
+    font-size: .95rem;
+  }
+  .preco-por-label{
+    display: block;
+    font-size: .85rem;
+    color: var(--cinza-texto);
+    margin-bottom: 2px;
+  }
+
+  .oferta-nudge{
+    text-align: center;
+    padding: 4px 0 6px;
+  }
+  .oferta-nudge p{
+    font-family: var(--font-titulo);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--verde-petroleo);
+    margin-bottom: 6px;
+  }
+  .oferta-nudge .seta-nudge{
+    display: inline-block;
+    font-size: 1.8rem;
+    color: var(--verde-cta-hover);
+  }
+
   /* ===== GARANTIA ===== */
   .garantia{
     background: var(--verde-cta);
@@ -627,6 +677,7 @@ src="https://www.facebook.com/tr?id=2344297609386117&ev=PageView&noscript=1"
     .seta-esq{ left: -20px; }
     .seta-dir{ right: -20px; }
     .oferta-grid{ grid-template-columns: repeat(2, 1fr); max-width: 860px; }
+    .oferta-nudge{ display: none; }
     .oferta-card.destaque{ transform: scale(1.04); }
 
     .prova-social h2.destaque{ font-size: 2.6rem; }
@@ -851,26 +902,39 @@ src="https://www.facebook.com/tr?id=2344297609386117&ev=PageView&noscript=1"
         <h3>Só a Planilha</h3>
         <div class="oferta-preco">R$17<span>,00 à vista</span></div>
         <ul class="oferta-lista">
-          <li>Planilha completa de organização financeira 2026</li>
-          <li>Acesso imediato após a compra</li>
-          <li>Atualizações futuras incluídas</li>
+          <li class="incluso">Planilha completa de organização financeira 2026</li>
+          <li class="incluso">Acesso imediato após a compra</li>
+          <li class="incluso">Atualizações futuras incluídas</li>
+          <!-- PLACEHOLDER: definir nome do bônus (mesmo texto usado na Oferta 2) -->
+          <li class="nao-incluso">Bônus exclusivo: [NOME_DO_BONUS - a definir]</li>
         </ul>
         <!-- PLACEHOLDER: substituir pelo link real de checkout -->
         <a href="https://pay.cakto.com.br/o7zxmb3_786993" class="btn btn-primary btn-block js-checkout-cta">Quero só a planilha</a>
       </div>
 
+      <!-- nudge: só aparece no mobile, guiando pra oferta 2 -->
+      <div class="oferta-nudge">
+        <p>Antes de comprar... veja essa oferta mais vantajosa pra você!</p>
+        <span class="seta-nudge">↓</span>
+      </div>
+
       <!-- OFERTA 2 - DESTAQUE -->
       <div class="oferta-card destaque">
         <span class="oferta-badge">Mais vendido</span>
+        <div class="oferta-estrelas">★★★★★</div>
         <h3>Planilha + Bônus</h3>
-        <div class="oferta-preco">R$27<span>,00 à vista</span></div>
         <ul class="oferta-lista">
-          <li>Planilha completa de organização financeira 2026</li>
-          <li>Acesso imediato após a compra</li>
-          <li>Atualizações futuras incluídas</li>
+          <li class="incluso">Planilha completa de organização financeira 2026</li>
+          <li class="incluso">Acesso imediato após a compra</li>
+          <li class="incluso">Atualizações futuras incluídas</li>
           <!-- PLACEHOLDER: definir nome do bônus -->
-          <li class="bonus">Bônus exclusivo: [NOME_DO_BONUS - a definir]</li>
+          <li class="incluso bonus">Bônus exclusivo: [NOME_DO_BONUS - a definir]</li>
         </ul>
+        <div class="oferta-preco-anchor">
+          <span class="preco-de">De R$67,00</span>
+          <span class="preco-por-label">por apenas</span>
+        </div>
+        <div class="oferta-preco">R$27<span>,00 à vista</span></div>
         <!-- PLACEHOLDER: substituir pelo link real de checkout -->
         <a href="[LINK_CHECKOUT_OFERTA_2]" class="btn btn-primary btn-block js-checkout-cta">Quero o combo completo</a>
       </div>
