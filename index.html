@@ -460,28 +460,34 @@ src="https://www.facebook.com/tr?id=2344297609386117&ev=PageView&noscript=1"
 
   /* ===== GARANTIA ===== */
   .garantia{
-    text-align:center;
+    background: var(--verde-cta);
   }
   .garantia-box{
-    max-width: 620px;
+    max-width: 880px;
     margin: 0 auto;
-    background: var(--off-white);
-    border: 2px dashed var(--verde-petroleo-claro);
-    border-radius: var(--radius);
-    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
   }
   .garantia-icone{
-    width: 110px;
-    margin: 0 auto 12px;
+    width: 150px;
+    flex-shrink: 0;
   }
   .garantia h2{
-    font-size: 1.25rem;
-    margin-bottom: 10px;
+    font-size: 1.4rem;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    color: var(--verde-petroleo-escuro);
   }
   .garantia p{
-    color: var(--cinza-texto);
-    font-size: .95rem;
+    color: var(--verde-petroleo-escuro);
+    font-size: .98rem;
+    margin-bottom: 12px;
   }
+  .garantia p:last-child{ margin-bottom: 0; }
+  .garantia strong{ color: var(--verde-petroleo-escuro); }
 
   /* ===== FAQ ===== */
   .faq h2{
@@ -625,6 +631,16 @@ src="https://www.facebook.com/tr?id=2344297609386117&ev=PageView&noscript=1"
 
     .prova-social h2.destaque{ font-size: 2.6rem; }
     .cta-final h2{ font-size: 2.2rem; }
+
+    .garantia-box{
+      flex-direction: row;
+      align-items: center;
+      text-align: left;
+      gap: 40px;
+    }
+    .garantia-icone{ width: 190px; }
+    .garantia h2{ font-size: 1.9rem; }
+    .garantia p{ font-size: 1.05rem; }
   }
 
   @media (min-width: 1024px){
@@ -853,8 +869,11 @@ src="https://www.facebook.com/tr?id=2344297609386117&ev=PageView&noscript=1"
   <div class="container">
     <div class="garantia-box">
       <img class="garantia-icone" src="garantia-7-dias.png" alt="Selo de garantia de 7 dias">
-      <h2>Garantia de 7 dias</h2>
-      <p>Experimente sem risco. Se não gostar, devolvemos 100% do seu dinheiro.</p>
+      <div>
+        <h2>Risco zero! 7 dias de garantia</h2>
+        <p>Temos tanta confiança de que a Planilha de Organização Financeira 2026 vai transformar a forma como você lida com o seu dinheiro, que oferecemos uma <strong>garantia incondicional de 7 dias</strong> após a compra.</p>
+        <p>É isso mesmo: se você não gostar, achar complicado ou sentir que não é pra você, é só pedir o reembolso dentro desse prazo que devolvemos <strong>100% do valor pago</strong>, sem perguntas e sem burocracia.</p>
+      </div>
     </div>
   </div>
 </section>
